@@ -1,0 +1,62 @@
+[16,21,11,8,12,22] -> Merge Sort
+
+Yukarıdaki dizinin sort türüne göre aşamalarını yazınız. 
+
+
+Önce indexler belirlenir: [16] Sol index (0. index)
+                          [22] Sağ index (5. index) olmak üzere orta nokta bulunur: [(5-0)+1]/2=3 
+                          Diziyi üçerli indexlere ayıracağız.
+                          [16,21,11]    [8,12,22] 
+
+Ayrılan indexleri tekrar böleceğiz:
+[16] [21,11] [8,12] [22]
+
+Indexler tek elemanlı hale getirilir:
+[16] [21] [11] [8] [12] [22] 
+
+Soldan başlayarak gruplar sıralanarak birleştirmeye başlarız:
+[16] tek elemanlı olarak en solda kalır.
+11 sayısı 21 ile kıyaslanır. 11 sayısı 21 sayısından küçük olduğundan geriye atılır
+[11,21] şeklinde sıralanır. 
+
+Sağdaki üçlü grubun solundan başlarız:
+8 ve 12 sayısı kıyaslanır. 8 sayısı 12 sayısından küçük olduğundan [8,12] şeklinde kalır.
+[22] tek elemanlı olarak en sağda kalır
+
+Bu adım sonunda sıralama şu şekilde olacaktır:
+[16] [11,21] [8,12] [22] 
+
+Sol grupta 16 sayısı önce 11 ile kıyaslanır. 16 sayısı 11 sayısından büyüktür, 11 sayısı geriye atılır.
+16 sayısı 21 sayısı kıyaslanır, 21 sayısı 16 sayısından büyük olduğundan 16 sayısının yeri değişmez.
+[11,16,21]
+
+Sağ grupta 8 sayısı 22 sayısı ile kıyaslanır, 22 sayısı 8 sayısından büyük olduğundan 8 sayısının yeri değişmez.
+12 sayısı ile 22 sayısı ile kıyaslanır, 22 sayısı 12 sayısından büyük olduğundan 12 sayısının yeri değişmez.
+[8,12,22] 
+
+Bu adım sonunda sıralama şu şekilde olacaktır:
+[11,16,21] [8,12,22]
+
+Soldaki grubun en başındaki elemandan başlayarak kıyaslama yapmaya başlanır.
+11 sayısı ile 8 sayısı kıyaslanır. 11>8 olduğundan 8 sayısı sıranın en başına geçer.
+11 sayısı ile 12 sayısı kıyaslanır. 12>11 olduğundan 12 sayısı 11'den sonra gelir.
+11 sayısı ile 22 sayısı kıyaslanır. 22>11 olduğundan 22 sayısının yeri değişmez.
+16 sayısı ile 12 sayısı kıyaslanır. 16>12 olduğundan 12 sayısı 16 sayısından önce gelir.
+16 sayısı ile 22 sayısı kıyaslanır. 22>16 olduğundan 16 sayısı 22 sayısından önce gelir. 
+21 sayısı ile 22 sayısı kıyaslanır. 22>21 olduğundan 16 sayısından sonra 22 sayısından önce gelir.
+
+Bu adımın sonunda sıralama şu şekilde olacaktır:
+[8,11,12,16,21,22] 
+
+Dizinin kısaca adımları:
+    [16,21,11,8,12,22]
+   [16,21,11] [8,12,22]
+  [16] [21,11] [8,12] [22]
+[16] [21] [11] [8] [12] [22] 
+  [16] [11,21] [8,12] [22] 
+   [11,16,21] [8,12,22]
+    [8,11,12,16,21,22]
+
+Big-O gösterimini yazınız.
+
+O(n.logn) 
